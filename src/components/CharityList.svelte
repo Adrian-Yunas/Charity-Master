@@ -1,5 +1,23 @@
 <script>
   export let charities;
+
+  function calculateFunded(pledged, target) {
+    return Math.round((1 / (target / pledged)) * 100);
+  }
+
+  function formatCurrency(nominal) {
+    return nominal.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
+  }
+
+  function calculateDaysRemaining(date_end) {
+    const delta = date_end - new Date();
+
+    const oneDay = 24 * 60 * 60 * 1000;
+    return Math.round(Math.abs(delta / oneDay));
+  }
 </script>
 
 <!-- popularCauses section -->
@@ -111,7 +129,11 @@
                       <span
                         class="number-percentage-count number-percentage"
                         data-value="90"
-                        data-animation-duration="3500">{charity.pledged}</span
+                        data-animation-duration="3500"
+                        >{calculateFunded(
+                          charity.pledged,
+                          charity.target
+                        )}</span
                       >%
                     </p>
                   </div>
@@ -128,15 +150,22 @@
                 >
 
                 <ul class="xs-list-with-content">
-                  <li>{charity.pledged} <span>Pledged</span></li>
+                  <li>
+                    {formatCurrency(charity.pledged)} <span>Pledged</span>
+                  </li>
+
                   <li>
                     <span
                       class="number-percentage-count number-percentage"
                       data-value="90"
-                      data-animation-duration="3500">{charity.pledged}</span
+                      data-animation-duration="3500"
+                      >{calculateFunded(charity.pledged, charity.target)}</span
                     >% <span>Funded</span>
                   </li>
-                  <li>{charity.date_end} <span>Days to go</span></li>
+                  <li>
+                    {calculateDaysRemaining(charity.date_end)}
+                    <span>Days to go</span>
+                  </li>
                 </ul>
 
                 <span class="xs-separetor" />
@@ -186,3 +215,8 @@
     <h5>Data belum tersedia</h5>
   {/if}
 </div> -->
+<style>
+  .xs-list-with-content {
+    font-size: 12px;
+  }
+</style>
