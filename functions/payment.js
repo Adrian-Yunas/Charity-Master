@@ -1,7 +1,7 @@
 exports.handler = function(event, context, callback){
     const Midtrans = require('midtrans-client');
 
-    const header = {
+    const headers = {
         'Access-Control-Allow-Origin': '*',
         'Acess-Control-Allow-Headers': 'Content-Type',
         'Acess-Contol-Allow-Methods': 'GET, POST, PUT, DELETE'
