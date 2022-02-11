@@ -1,5 +1,5 @@
 <script>
-  import Header from "../components/header.svelte";
+  import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
 
   google.maps.event.addDomListener(window, "load", init);
