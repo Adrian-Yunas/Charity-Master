@@ -1,6 +1,6 @@
 <script>
   import router from "page";
-  import Header from "../components/header.svelte";
+  import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import Loader from "../components/Loader.svelte";
 
