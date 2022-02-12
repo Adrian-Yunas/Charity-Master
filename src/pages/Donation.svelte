@@ -51,7 +51,7 @@
       });
       const midtransData = await resMid.json();
       console.log(midtransData);
-      //window.location.href = midtransData.url;
+      window.location.href = midtransData.url;
     } catch (err) {
       console.log(err);
     }
