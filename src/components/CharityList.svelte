@@ -158,9 +158,7 @@
                 <li><a href="/category">{charity.category}</a></li>
               </ul>
 
-              <a href={charity.title} class="xs-post-title xs-mb-30"
-                >Splash Drone 3 a Fully Waterproof Drone that floats</a
-              >
+              <a href="#" class="xs-post-title xs-mb-30">{charity.title}</a>
 
               <ul class="xs-list-with-content">
                 <li class="pledged">
