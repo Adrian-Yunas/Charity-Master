@@ -24,6 +24,7 @@
   }
 
   async function handleForm(event) {
+    const newData = await getCharity(params.id);
     newData.pledged = newData.pledged + parseInt(amount);
     try {
       const res = await fetch(
@@ -50,7 +51,7 @@
       });
       const midtransData = await resMid.json();
       console.log(midtransData);
-      window.location.href = midtransData.url;
+      //window.location.href = midtransData.url;
     } catch (err) {
       console.log(err);
     }
