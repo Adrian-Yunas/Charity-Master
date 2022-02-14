@@ -1,5 +1,5 @@
 <script>
-  import { charities } from "../store.js";
+  import { charities } from "../stores/data.js";
   //import { onMount, onDestroy, beforeUpdate, afterUpdate } from "svelte";
   import Modal from "./Modal.svelte";
   import Loader from "./Loader.svelte";

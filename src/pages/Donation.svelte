@@ -1,28 +1,28 @@
 <script>
+  import { charity, getCharity } from "../stores/data.js";
+  import { params } from "../stores/pages.js";
   import router from "page";
-  import { charity, getCharity } from "../store.js";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import Loader from "../components/Loader.svelte";
 
-  export let params;
   let amount,
     name,
     email,
     agree = false;
 
-  getCharity(params.id);
+  getCharity($params.id);
 
   function handleButtonCLick() {
     console.log("Button Click");
   }
 
   async function handleForm(event) {
-    const newData = await getCharity(params.id);
+    const newData = await getCharity($params.id);
     newData.pledged = newData.pledged + parseInt(amount);
     try {
       const res = await fetch(
-        `https://charity-api-bwa.herokuapp.com/charities/${params.id}`,
+        `https://charity-api-bwa.herokuapp.com/charities/${$params.id}`,
         {
           method: "PUT",
           headers: {
@@ -37,7 +37,7 @@
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          id: params.id,
+          id: $params.id,
           amount: parseInt(amount),
           name,
           email,
