@@ -8,7 +8,7 @@ exports.handler = function(event, context, callback){
     };
 
     const snap = new Midtrans.Snap({
-        isProduction: true,
+        isProduction: false,
         serverKey: process.env.MIDTRANS_SERVER_KEY,
         clientKey: process.env.MIDTRANS_CLIENT_KEY
     });
